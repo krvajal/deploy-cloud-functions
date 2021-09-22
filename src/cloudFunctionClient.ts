@@ -191,6 +191,7 @@ export class CloudFunctionClient {
    */
   async getUploadUrl(): Promise<cloudfunctions_v1.Schema$GenerateUploadUrlResponse> {
     const authClient = await this.getAuthClient();
+    core.info("this.parent " + this.parent)
     const getRequest: cloudfunctions_v1.Params$Resource$Projects$Locations$Functions$Generateuploadurl =
       {
         parent: this.parent,
@@ -212,6 +213,7 @@ export class CloudFunctionClient {
    */
   async deploy(cf: CloudFunction): Promise<cloudfunctions_v1.Schema$Operation> {
     const authClient = await this.getAuthClient();
+    
     const deployedFunctions = await this.listFunctions();
     const zipPath = path.join(
       os.tmpdir(),
