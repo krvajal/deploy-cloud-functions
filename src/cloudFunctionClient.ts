@@ -233,6 +233,8 @@ export class CloudFunctionClient {
     } catch (err) {
       throw new Error(`Zip file upload failed: ${err}`);
     }
+    core.info("done")
+    return;
     // Delete temp zip file after upload
     await deleteZipFile(zipPath);
     cf.setSourceUrl(uploadUrl.uploadUrl);
