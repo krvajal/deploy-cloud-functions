@@ -94,6 +94,7 @@ export class CloudFunctionClient {
       }
       jsonContent = JSON.parse(creds);
       this.auth.jsonContent = jsonContent;
+      core.info(JSON.stringify(jsonContent));
     }
     // Set project Id
     if (!projectId && jsonContent && jsonContent.project_id) {
@@ -120,6 +121,8 @@ export class CloudFunctionClient {
     if (!this.authClient) {
       this.authClient = await this.auth.getClient();
     }
+    core.info('auth client');
+    core.info(JSON.stringify(this.authClient));
     return this.authClient;
   }
 
