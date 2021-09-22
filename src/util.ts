@@ -126,8 +126,8 @@ export async function uploadSource(
 ): Promise<string> {
   const zipFile = fs.createReadStream(zipPath);
   const client = new Gaxios({ retryConfig: { retry: 5 } });
-  console.log("hwjhejwegrgehrgheghrgehwrgewhr")
-  console.log("uploadUrl", uploadUrl)
+  core.info("hwjhejwegrgehrgheghrgehwrgewhr")
+  core.info("uploadUrl " + uploadUrl)
   const resp = await client.request({
     method: 'PUT',
     body: zipFile,
