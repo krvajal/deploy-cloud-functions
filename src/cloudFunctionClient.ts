@@ -227,6 +227,7 @@ export class CloudFunctionClient {
       throw new Error('Unable to generate signed Url');
     }
     // Upload source code
+    console.log("heyyy uploadUrl", uploadUrl)
     try {
       await uploadSource(uploadUrl.uploadUrl, zipPath);
     } catch (err) {
